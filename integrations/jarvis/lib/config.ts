@@ -1,20 +1,19 @@
 import path from "path";
+import os from "os";
 import { homeEnv } from "./homeEnv";
 
 // ---------------------------------------------------------------------------
 // Personal-machine config — ALL of it, in one place. Every value reads an env
-// var (process.env first, then ~/.claude/.env) and falls back to a default
+// var (process.env first, then the Jarvis env file) and falls back to a default
 // that works on a fresh clone. ONBOARD.md walks through each one.
 // Client components can't import this (server-only via homeEnv/fs); the two
 // client-side values use NEXT_PUBLIC_ vars — see lib/voiceClient.ts and
 // components/ReportOverlay.tsx.
 // ---------------------------------------------------------------------------
 
-/** Vault root — the folder of plain files everything reads/writes.
- *  Defaults to the bundled starter vault so the HUD renders demo data
- *  before any setup. Point it at your real vault when ready. */
+/** A personal vault starts empty. Bundled examples are never account data. */
 export const VAULT_ROOT =
-  homeEnv("VAULT_ROOT") ?? path.resolve(process.cwd(), "starter-vault");
+  homeEnv("VAULT_ROOT") ?? path.join(os.homedir(), ".agentclub", "jarvis-vault");
 
 /** IANA timezone for "today" — daily notes, schedules, and the runner must
  *  all agree on this or dates flip near midnight UTC. */

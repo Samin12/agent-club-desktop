@@ -213,6 +213,7 @@
     "desktopOnly": "Откройте Jarvis в настольном приложении Agent Club.",
     "failed": "Не удалось запустить Jarvis. Повторите попытку или выполните bun run jarvis:build.",
     "retry": "Повторить",
-    "loading": "Запуск Jarvis…"
+    "loading": "Запуск Jarvis…",
+    "exit": "Выйти из Jarvis"
   }
 }

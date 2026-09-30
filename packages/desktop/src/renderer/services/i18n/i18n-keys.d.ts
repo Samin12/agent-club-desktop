@@ -305,6 +305,7 @@ export type I18nKey =
   | 'common.historyBack'
   | 'common.import'
   | 'common.jarvis.desktopOnly'
+  | 'common.jarvis.exit'
   | 'common.jarvis.failed'
   | 'common.jarvis.loading'
   | 'common.jarvis.reload'

@@ -211,6 +211,7 @@
     "desktopOnly": "請在 Agent Club 桌面應用程式中開啟 Jarvis。",
     "failed": "Jarvis 無法啟動。請重試，或執行 bun run jarvis:build 重新建置。",
     "retry": "重試",
-    "loading": "正在啟動 Jarvis…"
+    "loading": "正在啟動 Jarvis…",
+    "exit": "離開 Jarvis"
   }
 }

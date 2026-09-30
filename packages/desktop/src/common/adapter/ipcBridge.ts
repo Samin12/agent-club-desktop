@@ -2514,4 +2514,5 @@ export const sidebar = {
 
 export const jarvis = {
   open: bridge.buildProvider<{ url: string }, void>('agentclub:jarvis:open'),
+  fullscreen: bridge.buildProvider<void, boolean>('agentclub:jarvis:fullscreen'),
 };

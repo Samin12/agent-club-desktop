@@ -211,6 +211,7 @@
     "desktopOnly": "Jarvis’i Agent Club masaüstü uygulamasında açın.",
     "failed": "Jarvis başlatılamadı. Yeniden deneyin veya bun run jarvis:build ile yeniden derleyin.",
     "retry": "Yeniden dene",
-    "loading": "Jarvis başlatılıyor…"
+    "loading": "Jarvis başlatılıyor…",
+    "exit": "Jarvis’ten çık"
   }
 }

@@ -1,6 +1,7 @@
 import { app, utilityProcess } from 'electron';
-import { cpSync, existsSync, mkdirSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { preparePersonalVault } from './vault';
 import { JarvisRuntime } from './JarvisRuntime';
 
 const runtime = new JarvisRuntime((port, token) => {
@@ -11,9 +12,8 @@ const runtime = new JarvisRuntime((port, token) => {
   if (!existsSync(entry)) throw new Error('Jarvis bundle is missing. Run bun run jarvis:build.');
   const dataRoot = path.join(app.getPath('userData'), 'jarvis');
   const vault = process.env.VAULT_ROOT || path.join(dataRoot, 'vault');
-  if (!existsSync(vault)) {
-    mkdirSync(vault, { recursive: true });
-    cpSync(path.join(root, 'starter-vault'), vault, { recursive: true });
+  if (!process.env.VAULT_ROOT) {
+    preparePersonalVault(vault, path.join(root, 'starter-vault'), path.join(dataRoot, 'demo-backup'));
   }
   // Start only the HUD. The optional runner/voice services require user configuration.
   return utilityProcess.fork(entry, [], {

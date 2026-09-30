@@ -211,6 +211,7 @@
     "desktopOnly": "Agent Club デスクトップアプリで Jarvis を開いてください。",
     "failed": "Jarvis を起動できませんでした。再試行するか、bun run jarvis:build で再ビルドしてください。",
     "retry": "再試行",
-    "loading": "Jarvis を起動中…"
+    "loading": "Jarvis を起動中…",
+    "exit": "Jarvis を終了"
   }
 }

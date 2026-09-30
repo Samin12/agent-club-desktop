@@ -211,6 +211,7 @@
     "desktopOnly": "Jarvis را در برنامهٔ دسکتاپ Agent Club باز کنید.",
     "failed": "Jarvis اجرا نشد. دوباره تلاش کنید یا bun run jarvis:build را اجرا کنید.",
     "retry": "تلاش مجدد",
-    "loading": "در حال اجرای Jarvis…"
+    "loading": "در حال اجرای Jarvis…",
+    "exit": "خروج از Jarvis"
   }
 }

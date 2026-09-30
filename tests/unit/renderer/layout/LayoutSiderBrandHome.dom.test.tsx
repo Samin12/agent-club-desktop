@@ -29,6 +29,7 @@ vi.mock('react-router-dom', () => ({
   useNavigate: () => navigate,
   useLocation: () => ({ pathname: currentPathname, search: '', hash: '' }),
   useNavigationType: () => 'POP',
+  NavigationType: { Pop: 'POP', Push: 'PUSH', Replace: 'REPLACE' },
   Outlet: () => null,
 }));
 
@@ -102,6 +103,16 @@ describe('Layout sider brand Home button', () => {
 
   afterEach(() => {
     vi.clearAllMocks();
+  });
+
+  it('removes the sidebar from the immersive Jarvis route and restores it on exit', () => {
+    currentPathname = '/jarvis';
+    const view = renderLayout();
+    expect(screen.queryByText('sider')).toBeNull();
+    expect(document.querySelector('.app-shell')).toBeNull();
+    currentPathname = '/guid';
+    view.rerender(<Layout sider={<div>sider</div>} />);
+    expect(screen.getByText('sider')).toBeTruthy();
   });
 
   it('navigates to the recorded last non-settings path when clicked in a settings route', () => {

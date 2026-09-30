@@ -1,7 +1,7 @@
 import { homeEnv } from "./homeEnv";
 import { HUD_TZ } from "./config";
 import { ALLOWED_SKILLS } from "./skills";
-import { readMorningReport, readVaultState, type VaultState, type Metric } from "./vault";
+import { readMorningReport, readLiveVaultState, type VaultState, type Metric } from "./vault";
 import { recentExchanges } from "./voiceMemory";
 
 // ---------------------------------------------------------------------------
@@ -77,7 +77,7 @@ const BRIEFING_RE =
 // forces one engine first (model engines still degrade to rules on error).
 export async function route(transcript: string, convo = ""): Promise<RouteResult> {
   warmHaiku(); // no-op when already warmed — retries a failed module-load ping
-  const state = readVaultState();
+  const state = await readLiveVaultState();
   const result = await pickEngine(transcript, state, convo);
   return inFlightGuard(result, transcript, state);
 }

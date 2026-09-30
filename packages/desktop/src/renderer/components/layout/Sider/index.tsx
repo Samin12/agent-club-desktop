@@ -101,7 +101,7 @@ const Sider: React.FC<SiderProps> = ({ onSessionClick, collapsed = false }) => {
     blurActiveElement();
     closePreview();
     setIsBatchMode(false);
-    void navigate('/jarvis');
+    void navigate('/jarvis', { state: { returnTo: pathname } });
     onSessionClick?.();
   };
 

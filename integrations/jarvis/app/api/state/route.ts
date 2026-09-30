@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { readVaultState } from "@/lib/vault";
+import { readLiveVaultState } from "@/lib/vault";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const state = readVaultState();
+  const state = await readLiveVaultState();
   return NextResponse.json(state, {
     headers: { "Cache-Control": "no-store" },
   });

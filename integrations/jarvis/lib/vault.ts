@@ -1,4 +1,6 @@
 import fs from "fs";
+import { readSocialAccounts } from "./social/providers";
+import type { SocialAccount } from "./social/types";
 import path from "path";
 import { VAULT_ROOT, HUD_TZ } from "./config";
 
@@ -80,6 +82,7 @@ export interface DailyNote {
 }
 
 export interface VaultState {
+  socialAccounts?: SocialAccount[];
   generated_at: string;
   vault_root: string;
   metrics: Metric[];
@@ -128,7 +131,7 @@ export function readMetrics(): Metric[] {
     if (cols.length < 5) continue;
     const [timestamp, source, metric, valueStr, status] = cols;
     const value = parseFloat(valueStr);
-    if (Number.isNaN(value)) continue;
+    if (!Number.isFinite(value) || value < 0 || status === "mock" || status === "demo" || !Number.isFinite(Date.parse(timestamp))) continue;
     const key = `${source}:${metric}`;
     if (!byKey.has(key)) byKey.set(key, { source, metric, points: [] });
     const bucket = byKey.get(key)!;
@@ -183,7 +186,7 @@ export function readLatestVideo(): LatestVideo | null {
   const j = safeJson<Record<string, unknown>>(
     path.join(VAULT_ROOT, "system", "metrics", "latest-video.json")
   );
-  if (!j) return null;
+  if (!j || j.status === "mock" || j.status === "demo") return null;
   return {
     title: String(j.title ?? ""),
     url: String(j.url ?? ""),
@@ -516,4 +519,23 @@ export function readVaultState(): VaultState {
     morning: readMorningReport(),
     etas: readSkillEtas(),
   };
+}
+
+/** Account-verified audience data shared by the HUD and spoken answers. */
+export async function readLiveVaultState(): Promise<VaultState> {
+  const state = readVaultState();
+  const socialAccounts = await readSocialAccounts();
+  // Old CSVs have no account identity; do not let them impersonate a connected account.
+  const metrics = state.metrics.filter((m) => !["youtube", "instagram", "tiktok", "claude_code"].includes(m.source));
+  for (const account of socialAccounts) {
+    if (account.status !== "connected" || account.audience === null || !account.checkedAt) continue;
+    metrics.push({
+      source: account.platform,
+      metric: account.platform === "youtube" ? "subscribers" : "followers",
+      value: account.audience, status: "ok", timestamp: account.checkedAt,
+      history: [{ value: account.audience, status: "ok", timestamp: account.checkedAt }],
+      delta: null, deltaWeek: null,
+    });
+  }
+  return { ...state, metrics, socialAccounts, latestVideo: null };
 }

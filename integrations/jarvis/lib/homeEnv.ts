@@ -3,7 +3,7 @@ import path from "path";
 import os from "os";
 
 // ---------------------------------------------------------------------------
-// ~/.claude/.env loader — the one place keys live (same pattern metrics-pull
+// Jarvis .env loader — the one place keys live (same pattern metrics-pull
 // uses). Loaded once per server process; process.env wins over the file.
 // ---------------------------------------------------------------------------
 

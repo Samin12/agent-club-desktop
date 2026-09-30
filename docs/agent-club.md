@@ -31,12 +31,49 @@ directives, status panels, text/voice interface, and local vault API are retaine
 
 ## Vault and optional services
 
-On first open, the bundled starter vault is copied into
-`<Agent Club userData>/jarvis/vault`. On macOS the release user-data directory is
-normally `~/Library/Application Support/Agent Club`. Development may use a
-separate directory. Setting `VAULT_ROOT` before launch selects an existing vault.
-Jarvis uses the system timezone unless `HUD_TZ` is supplied. Starter metrics and
-sample reports are demonstration data, not connected personal accounts.
+Jarvis opens in fullscreen with the app navigation and title bar hidden. Use
+**Exit Jarvis** at the top right to return to the previous page and restore the
+window mode. Reload remains available beside Exit, including after startup failure.
+
+The personal vault at `<Agent Club userData>/jarvis/vault` starts empty. The
+bundled examples are never copied into a new vault. On upgrade, unchanged demo
+files from the earlier version are moved to `jarvis/demo-backup`; edited files
+are preserved. `VAULT_ROOT` can select an existing vault. Mock metrics are
+excluded even from existing vaults. Jarvis uses the system timezone by default.
+
+### Your YouTube and Instagram stats
+
+The audience panels read the configured accounts from official APIs and display
+the account name, source and last successful check. YouTube also supplies total
+channel views and video count. There is no simulated usage meter, assumed growth
+goal, fake history or sample video. Missing or failed connections show an em dash
+and connection status, never a made-up count. Old audience CSVs have no verified
+account identity and are not used for these panels or spoken audience answers.
+
+Configure the private `<Agent Club userData>/jarvis/.env` file and restart the app:
+
+```dotenv
+YOUTUBE_API_KEY=your_api_key
+YOUTUBE_HANDLE=@your_handle
+# Alternatively: YOUTUBE_CHANNEL_ID=UC...
+INSTAGRAM_ACCESS_TOKEN=your_instagram_login_access_token
+INSTAGRAM_USERNAME=your_username
+```
+
+Keep these values local. They are read only by the Jarvis server and are not sent
+to the renderer or stored in this repository. Instagram tokens must belong to
+the named professional account; mismatched accounts are rejected. This is an
+API connection, not an OAuth sign-in flow. The token must have the required
+Instagram account read permission; renew it when it expires.
+
+Requests are shared and cached for five minutes. Failed refreshes clear the
+visible account data rather than substituting old samples. Subscriber counts
+are rounded by YouTube and labeled accordingly. Unavailable counts stay blank;
+actual zero counts display as zero. No weekly change is estimated without history.
+
+API references: [YouTube channels.list](https://developers.google.com/youtube/v3/docs/channels/list),
+[YouTube channel statistics](https://developers.google.com/youtube/v3/docs/channels#statistics),
+[Instagram user reference](https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/).
 
 The HUD starts automatically. The following services are optional and separate:
 

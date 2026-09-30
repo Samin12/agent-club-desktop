@@ -1499,3 +1499,11 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Leave room for the desktop's always-visible exit control. */
+.embedded .topbar { padding-right: 180px; }
+.account-link { display: block; color: var(--ink); margin-top: 8px; overflow-wrap: anywhere; }
+.account-meta { grid-column: 1 / -1; color: var(--ink-dim); font-size: 9px; line-height: 1.6; margin-top: 8px; }
+@media (max-width: 900px) {
+  .embedded .topbar { padding-right: 0; padding-top: 36px; }
+}

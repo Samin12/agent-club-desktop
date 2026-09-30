@@ -211,6 +211,7 @@
     "desktopOnly": "Öffne Jarvis in der Agent Club Desktop-App.",
     "failed": "Jarvis konnte nicht starten. Versuche es erneut oder führe bun run jarvis:build aus.",
     "retry": "Erneut versuchen",
-    "loading": "Jarvis startet…"
+    "loading": "Jarvis startet…",
+    "exit": "Jarvis verlassen"
   }
 }

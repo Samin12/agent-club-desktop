@@ -3,7 +3,7 @@
 import { jarvisFetch, jarvisApiUrl } from "@/lib/session";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import type { VaultState, Metric } from "@/lib/vault";
+import type { VaultState } from "@/lib/vault";
 import { voice } from "@/lib/voiceClient";
 import { scrubRunSummary, humanizeFailure } from "@/lib/spokenText";
 import { BG_MODES, type BgMode, type CoreMode } from "./GraphCore";
@@ -60,10 +60,6 @@ function useClock() {
   return now;
 }
 
-function findMetric(metrics: Metric[], source: string, metric: string): Metric | null {
-  return metrics.find((m) => m.source === source && m.metric === metric) ?? null;
-}
-
 // relative age of an ISO timestamp; stale = older than two missed 6h pulls
 function fmtAge(ts: string | null): { label: string; stale: boolean } {
   if (!ts) return { label: "—", stale: true };
@@ -117,31 +113,6 @@ function CountUp({ value, full = false }: { value: number; full?: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [value]);
   return <>{full ? fmtFull(Math.round(display)) : fmt(display)}</>;
-}
-
-// inline sparkline from metric history — real data, no fake bars
-function Sparkline({ points }: { points: number[] }) {
-  if (points.length < 2) return <div className="spark spark-flat" />;
-  const min = Math.min(...points);
-  const max = Math.max(...points);
-  const range = max - min || 1;
-  const W = 100;
-  const H = 16;
-  const path = points
-    .map((v, i) => {
-      const x = (i / (points.length - 1)) * W;
-      const y = H - 2 - ((v - min) / range) * (H - 4);
-      return `${i === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(" ");
-  const last = points[points.length - 1];
-  const lastY = H - 2 - ((last - min) / range) * (H - 4);
-  return (
-    <svg className="spark" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none">
-      <path d={path} fill="none" stroke="currentColor" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
-      <circle cx={W} cy={lastY} r="1.8" fill="currentColor" />
-    </svg>
-  );
 }
 
 // section heading — typographic, no box
@@ -201,91 +172,26 @@ function runAnnouncement(skill: string, status: string, summary: string, label?:
 // panels (memoized — only re-render when their slice of state changes)
 // ---------------------------------------------------------------------------
 
-const SOCIAL_DEFS: { source: string; metric: string; label: string }[] = [
-  { source: "youtube", metric: "subscribers", label: "YT Subscribers" },
-  { source: "instagram", metric: "followers", label: "Instagram" },
-];
-
-function VitalLabel({ m, label }: { m: Metric; label: string }) {
-  const age = fmtAge(m.timestamp);
-  return (
-    <span className="label">
-      <i className={`status-dot ${m.status !== "ok" ? m.status : ""}`} />
-      {label}
-      {m.status === "mock" && <span className="sim-tag">SIM</span>}
-      <span className={`age ${age.stale ? "stale" : ""}`}>{age.label}</span>
-    </span>
-  );
-}
-
 const Vitals = memo(function Vitals({ state, hot }: { state: VaultState; hot?: boolean }) {
-  const metrics = state.metrics;
-  const tokens = findMetric(metrics, "claude_code", "tokens_5h");
-  const vidMetric = findMetric(metrics, "youtube", "latest_video_views");
-  const v = state.latestVideo;
-
-  // auto-calibrating cap: 100% = the biggest 5h window ever recorded —
-  // no plan constant to maintain, tightens itself as heavy days land
-  const tokenPeak = tokens
-    ? Math.max(...tokens.history.map((h) => h.value), tokens.value)
-    : null;
-
-  const vidDays = v ? Math.max((Date.now() - Date.parse(v.published_at)) / 86_400_000, 0.25) : null;
-  const vidPerDay = v && vidDays ? v.views / vidDays : null;
-
   return (
     <section className={`block boot-stagger ${hot ? "voice-hot" : ""}`} style={{ animationDelay: "0.1s" }}>
-      <SectionTitle title="System Vitals" tick="AUDIENCE.LINK" />
-      {SOCIAL_DEFS.map((def) => {
-        const m = findMetric(metrics, def.source, def.metric);
-        if (!m) return null;
-        const dw = m.deltaWeek;
-        const deltaCls = !dw ? "zero" : dw < 0 ? "neg" : "";
-        const age = fmtAge(m.timestamp);
+      <SectionTitle title="Your audience" tick="ACCOUNT.STATS" />
+      {(["youtube", "instagram"] as const).map((platform) => {
+        const account = state.socialAccounts?.find((a) => a.platform === platform);
+        const connected = account?.status === "connected";
+        const label = platform === "youtube" ? "YouTube subscribers" : "Instagram followers";
+        const age = fmtAge(account?.checkedAt ?? null);
+        const stale = !!account?.checkedAt && Date.now() - Date.parse(account.checkedAt) > 10 * 60 * 1000;
         return (
-          <div className={`vital ${age.stale ? "is-stale" : ""}`} key={`${def.source}:${def.metric}`}>
-            <VitalLabel m={m} label={def.label} />
-            <span className="value">
-              <CountUp value={m.value} />
-            </span>
-            <span className={`delta ${deltaCls}`}>
-              {dw === null ? "—" : dw === 0 ? "steady /wk" : `${dw > 0 ? "▲" : "▼"} ${fmt(Math.abs(dw))} /wk`}
-            </span>
-            <div className="spark-row">
-              <Sparkline points={m.history.map((h) => h.value)} />
-            </div>
+          <div className={`vital ${!connected || stale ? "is-stale" : ""}`} key={platform}>
+            <span className="label"><i className={`status-dot ${connected ? "" : "dead"}`} />{label}</span>
+            <span className="value">{connected && account.audience !== null ? <CountUp value={account.audience} full /> : "—"}</span>
+            <span className="delta zero">{connected ? (account.audience === null ? "Count unavailable" : account.rounded ? "Rounded by YouTube" : "Reported by Instagram") : account?.status === "unavailable" ? "Unable to refresh account" : "Not connected"}</span>
+            {account?.url && <a className="account-link" href={account.url} target="_blank" rel="noreferrer">{account.account} ↗</a>}
+            <div className="account-meta">{connected ? `${account.source} · checked ${age.label}${age.label === "now" ? "" : " ago"}${stale ? " · refresh overdue" : ""}` : "Connect your account to see your stats."}</div>
           </div>
         );
       })}
-
-      {v && vidMetric && (
-        <div className={`vital ${fmtAge(vidMetric.timestamp).stale ? "is-stale" : ""}`}>
-          <VitalLabel m={vidMetric} label="Latest Video" />
-          <span className="value">
-            <CountUp value={v.views} />
-          </span>
-          <span className="delta">{vidPerDay !== null ? `≈${fmt(vidPerDay)} /day` : "—"}</span>
-          <div className="spark-row">
-            <Sparkline points={vidMetric.history.map((h) => h.value)} />
-          </div>
-        </div>
-      )}
-
-      {tokens && tokenPeak !== null && tokenPeak > 0 && (
-        <div className={`vital ${fmtAge(tokens.timestamp).stale ? "is-stale" : ""}`}>
-          <VitalLabel m={tokens} label="Claude 5h Window" />
-          <span className="value">
-            <CountUp value={(tokens.value / tokenPeak) * 100} full />
-            <span className="unit-pct">%</span>
-          </span>
-          <span className="delta">
-            {fmt(tokens.value)} of {fmt(tokenPeak)} peak
-          </span>
-          <div className="spark-row">
-            <Sparkline points={tokens.history.map((h) => h.value)} />
-          </div>
-        </div>
-      )}
     </section>
   );
 });
@@ -529,98 +435,15 @@ const Schedule = memo(function Schedule({ state, hot }: { state: VaultState; hot
   );
 });
 
-// State-picked directive: a fresh upload (<48h) takes the board as a live
-// velocity battle; otherwise the long campaign — road to the NEXT subscriber
-// milestone, with the projected arrival date from the real weekly delta.
-const MILESTONES = [100_000, 250_000, 500_000, 1_000_000, 2_000_000];
-const nextMilestone = (subs: number) =>
-  MILESTONES.find((m) => m > subs) ?? Math.ceil(subs / 1_000_000 + 1) * 1_000_000;
-const LIVE_DEPLOY_H = 48;
-
 const Objective = memo(function Objective({ state, hot }: { state: VaultState; hot?: boolean }) {
-  const subs = findMetric(state.metrics, "youtube", "subscribers");
-  const v = state.latestVideo;
-
-  const ageH = v?.published_at ? (Date.now() - Date.parse(v.published_at)) / 3_600_000 : null;
-  const liveDeploy = v !== null && ageH !== null && ageH >= 0 && ageH <= LIVE_DEPLOY_H;
-
-  const deployLine = v && (
-    <div className="video-title">
-      latest deploy ·{" "}
-      <a href={v.url} target="_blank" rel="noreferrer">
-        <b>{v.title}</b>
-      </a>{" "}
-      — {fmtFull(v.views)} views
-    </div>
-  );
-
-  if (liveDeploy && v) {
-    const days = Math.max(ageH! / 24, 0.25);
-    const perDay = Math.round(v.views / days);
-    const windowPct = Math.min((ageH! / LIVE_DEPLOY_H) * 100, 100);
-    return (
-      <section className={`objective boot-stagger ${hot ? "voice-hot" : ""}`} style={{ animationDelay: "0.58s" }}>
-        <div className="obj-label">Primary Directive · Live Deploy</div>
-        <div className="big">
-          <CountUp value={v.views} full />
-          <span className="unit">VIEWS</span>
-        </div>
-        <div className="progress">
-          <i style={{ width: `${windowPct}%` }} />
-        </div>
-        <div className="sub">
-          <span>
-            velocity <b>{fmtFull(perDay)}/day</b>
-          </span>
-          <span>
-            live <b>{Math.round(ageH!)}h</b>
-          </span>
-          <span>
-            spotlight <b>{Math.max(LIVE_DEPLOY_H - Math.round(ageH!), 0)}h left</b>
-          </span>
-        </div>
-        {deployLine}
-      </section>
-    );
-  }
-
-  const target = subs ? nextMilestone(subs.value) : MILESTONES[0];
-  const pct = subs ? Math.min((subs.value / target) * 100, 100) : 0;
-  // honest clock: at the current weekly pace, when does the next plaque land?
-  const eta =
-    subs && subs.deltaWeek && subs.deltaWeek > 0
-      ? new Date(
-          Date.now() + ((target - subs.value) / subs.deltaWeek) * 7 * 86_400_000
-        ).toLocaleDateString("en-US", { month: "short", year: "numeric" })
-      : null;
+  const youtube = state.socialAccounts?.find((a) => a.platform === "youtube" && a.status === "connected");
+  if (!youtube) return null;
   return (
     <section className={`objective boot-stagger ${hot ? "voice-hot" : ""}`} style={{ animationDelay: "0.58s" }}>
-      <div className="obj-label">Primary Directive · Road to {fmt(target)}</div>
-      <div className="big">
-        {subs ? <CountUp value={subs.value} full /> : "—"}
-        <span className="unit">SUBS</span>
-      </div>
-      <div className="progress">
-        <i style={{ width: `${pct}%` }} />
-      </div>
-      <div className="sub">
-        <span>
-          target <b>{fmtFull(target)}</b>
-        </span>
-        <span>
-          this week <b>{subs?.deltaWeek ? `+${fmtFull(subs.deltaWeek)}` : "—"}</b>
-        </span>
-        <span>
-          {eta ? (
-            <>
-              at this pace <b>{eta}</b>
-            </>
-          ) : (
-            <b>{pct.toFixed(1)}%</b>
-          )}
-        </span>
-      </div>
-      {deployLine}
+      <div className="obj-label">Your YouTube channel</div>
+      <div className="big">{youtube.views !== null ? <CountUp value={youtube.views} full /> : "—"}<span className="unit">VIEWS</span></div>
+      <div className="sub"><span>All time · reported by YouTube</span><span>{youtube.posts === null ? "—" : fmtFull(youtube.posts)} videos</span></div>
+      <div className="video-title">{youtube.account}</div>
     </section>
   );
 });
@@ -692,6 +515,8 @@ const MODE_KEYS: Record<string, CoreMode> = {
 
 export default function HUD() {
   const { state, error, refresh } = useVaultState(5000);
+  const [embedded, setEmbedded] = useState(false);
+  useEffect(() => setEmbedded(window.parent !== window), []);
   const [feed, setFeed] = useState<FeedLine[]>([]);
   const [modeOverride, setModeOverride] = useState<CoreMode | null>(null);
   const [bgMode, setBgMode] = useState<BgMode>("grid");
@@ -1068,7 +893,7 @@ export default function HUD() {
   const mode = modeOverride ?? autoMode;
 
   return (
-    <main className="stage">
+    <main className={`stage ${embedded ? "embedded" : ""}`}>
       <GraphCore mode={mode} bgMode={bgMode} getLevel={voice.getLevel} />
 
       <div className="scrim scrim-l" aria-hidden="true" />

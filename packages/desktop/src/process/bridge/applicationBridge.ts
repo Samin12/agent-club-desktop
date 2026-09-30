@@ -15,10 +15,12 @@ import { getCdpBridgeHandle } from '@process/utils/cdpBridgeRegistry';
 import { getGpuStatus, setGpuUserOverride } from '@process/utils/gpuRecovery';
 import { initApplicationBridgeCore } from './applicationBridgeCore';
 import type { IStartOnBootStatus } from '@/common/adapter/ipcBridge';
+import { createJarvisFullscreen } from '@process/services/jarvis/fullscreen';
 import { openJarvis } from '@process/services/jarvis';
 import { restartApplication } from './restartApplication';
 
 let mainWindowRef: BrowserWindow | null = null;
+const jarvisFullscreen = createJarvisFullscreen(() => mainWindowRef, process.platform);
 
 const START_ON_BOOT_UNSUPPORTED_MESSAGE = 'Start on boot is only available in packaged macOS and Windows apps.';
 export const START_ON_BOOT_WINDOWS_ARG = '--start-on-boot';
@@ -100,6 +102,7 @@ export function setApplicationMainWindow(win: BrowserWindow): void {
 
 export function initApplicationBridge(): void {
   ipcBridge.jarvis.open.provider(openJarvis);
+  ipcBridge.jarvis.fullscreen.provider(async (active) => jarvisFullscreen(active));
   // Platform-agnostic handlers: systemInfo, updateSystemInfo, getPath
   initApplicationBridgeCore();
 

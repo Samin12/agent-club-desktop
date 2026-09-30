@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Spin, Typography } from '@arco-design/web-react';
-import { Refresh } from '@icon-park/react';
+import { Close, Refresh } from '@icon-park/react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ipcBridge } from '@/common';
 import { isElectronDesktop } from '@renderer/utils/platform';
@@ -8,6 +9,23 @@ import styles from './Jarvis.module.css';
 
 const Jarvis: React.FC = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const returnTo = (location.state as { returnTo?: string } | null)?.returnTo;
+  const exit = () => {
+    void navigate(
+      returnTo?.startsWith('/') && !returnTo.startsWith('//') && returnTo !== '/jarvis' ? returnTo : '/guid',
+      { replace: true }
+    );
+  };
+
+  useEffect(() => {
+    if (!isElectronDesktop()) return;
+    void ipcBridge.jarvis.fullscreen.invoke(true).catch(() => {});
+    return () => {
+      void ipcBridge.jarvis.fullscreen.invoke(false).catch(() => {});
+    };
+  }, []);
   const [url, setUrl] = useState<string>();
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -34,24 +52,19 @@ const Jarvis: React.FC = () => {
 
   return (
     <section className={styles.page} aria-label={t('common.jarvis.title')}>
-      <header className={styles.header}>
-        <div>
-          <Typography.Title heading={5} className='m-0!'>
-            {t('common.jarvis.title')}
-          </Typography.Title>
-          <Typography.Text type='secondary'>{t('common.jarvis.subtitle')}</Typography.Text>
-        </div>
+      <nav className={styles.controls} aria-label={t('common.jarvis.title')}>
         {desktop && (
           <Button
-            className='flex! items-center! gap-8px!'
             icon={<Refresh />}
             onClick={reload}
             aria-label={t('common.jarvis.reload')}
-          >
-            {t('common.jarvis.reload')}
-          </Button>
+            title={t('common.jarvis.reload')}
+          />
         )}
-      </header>
+        <Button className='flex! items-center! gap-8px!' icon={<Close />} onClick={exit}>
+          {t('common.jarvis.exit')}
+        </Button>
+      </nav>
       {!desktop ? (
         <div className={styles.empty}>{t('common.jarvis.desktopOnly')}</div>
       ) : failed ? (
