@@ -10,5 +10,6 @@
   "endOfLine": "lf",
   "quoteProps": "as-needed",
   "jsxSingleQuote": true,
-  "bracketSameLine": false
+  "bracketSameLine": false,
+  "ignorePatterns": ["integrations/jarvis/**"]
 }

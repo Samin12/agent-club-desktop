@@ -153,7 +153,7 @@ const completeArcoLocale = (locale: ArcoLocaleInput): typeof enUS => ({
   ColorPicker: locale.ColorPicker ?? enUS.ColorPicker,
 });
 
-// Every language AionUi ships that Arco publishes a locale for. Arco has no
+// Every language Agent Club ships that Arco publishes a locale for. Arco has no
 // uk-UA or fa-IR locale; those fall back to English component strings.
 const arcoLocales: Record<string, typeof enUS> = {
   'zh-CN': zhCN,

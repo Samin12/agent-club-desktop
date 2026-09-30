@@ -68,7 +68,7 @@ export class CdnGenericProvider extends GenericProvider {
     const resolved = resolveProviderFiles(
       updateInfo,
       this._cdnBaseUrl,
-      (filePath) => `${updateInfo.version}/${filePath}`
+      (filePath) => `https://github.com/Samin12/agent-club-desktop/releases/download/v${updateInfo.version}/${filePath}`
     );
     log.info('[auto-update] Update download URL(s) resolved:', {
       version: updateInfo.version,

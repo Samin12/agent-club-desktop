@@ -69,6 +69,7 @@
     "docs/",
     "config/webpack/",
     "scripts/",
-    "mobile/"
+    "mobile/",
+    "integrations/jarvis/**"
   ]
 }

@@ -6,6 +6,32 @@
 
 import type { TProviderWithModel } from '../config/storage';
 
+type CatalogProfile = {
+  name: string;
+  name_i18n?: Record<string, string>;
+  description?: string;
+  description_i18n?: Record<string, string>;
+  source?: string;
+  agent_source?: string;
+};
+
+const brandCatalogText = (text: string): string =>
+  text.replace(/AionUi|AionUI/g, 'Agent Club').replace(/Aion CLI/g, 'Agent Club Agent');
+
+/** Map system-authored display labels; preserve user content and all runtime IDs. */
+export function brandBuiltinCatalogEntry<T extends CatalogProfile>(entry: T): T {
+  if (!['builtin', 'internal'].includes(entry.source ?? entry.agent_source ?? '')) return entry;
+  const localize = (values?: Record<string, string>) =>
+    values && Object.fromEntries(Object.entries(values).map(([key, value]) => [key, brandCatalogText(value)]));
+  return {
+    ...entry,
+    name: brandCatalogText(entry.name),
+    name_i18n: localize(entry.name_i18n),
+    description: entry.description && brandCatalogText(entry.description),
+    description_i18n: localize(entry.description_i18n),
+  };
+}
+
 export type ApiProviderWithModel = {
   provider_id: string;
   model: string;

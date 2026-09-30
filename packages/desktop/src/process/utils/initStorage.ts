@@ -70,7 +70,7 @@ const migrateLegacyData = async () => {
         try {
           return existsSync(newDir) && readdirSync(newDir).length === 0;
         } catch (error) {
-          console.warn('[AionUi] Warning: Could not read new directory during migration check:', error);
+          console.warn('[Agent Club] Warning: Could not read new directory during migration check:', error);
           return false; // 假设非空以避免迁移覆盖
         }
       })();
@@ -91,7 +91,7 @@ const migrateLegacyData = async () => {
           try {
             await fs.rm(oldDir, { recursive: true });
           } catch (cleanupError) {
-            console.warn('[AionUi] 原目录清理失败，请手动删除:', oldDir, cleanupError);
+            console.warn('[Agent Club] 原目录清理失败，请手动删除:', oldDir, cleanupError);
           }
         }
       }
@@ -99,7 +99,7 @@ const migrateLegacyData = async () => {
       return true;
     }
   } catch (error) {
-    console.error('[AionUi] 数据迁移失败:', error);
+    console.error('[Agent Club] 数据迁移失败:', error);
   }
 
   return false;
@@ -315,7 +315,7 @@ const cleanupLegacyBuiltinSkillsDir = () => {
   const legacyDir = path.join(cacheDir, LEGACY_BUILTIN_SKILLS_DIR);
   if (!existsSync(legacyDir)) return;
   fs.rm(legacyDir, { recursive: true, force: true })
-    .then(() => console.log('[AionUi] Cleaned up legacy builtin-skills cache'))
+    .then(() => console.log('[Agent Club] Cleaned up legacy builtin-skills cache'))
     .catch(() => {
       /* swallow — cleanup is not critical */
     });
@@ -365,7 +365,7 @@ const getBuiltinMcpScriptPath = (scriptName: string): string => {
 
 const initStorage = async () => {
   const t0 = performance.now();
-  const mark = (label: string) => console.log(`[AionUi:init] ${label} +${Math.round(performance.now() - t0)}ms`);
+  const mark = (label: string) => console.log(`[Agent Club:init] ${label} +${Math.round(performance.now() - t0)}ms`);
   mark('start');
 
   // 1. 先执行数据迁移（在任何目录创建之前）
@@ -393,7 +393,7 @@ const initStorage = async () => {
     await ensureAssistantDirs();
     mark('5. ensureAssistantDirs');
   } catch (error) {
-    console.error('[AionUi] Failed to ensure assistant dirs:', error);
+    console.error('[Agent Club] Failed to ensure assistant dirs:', error);
   }
 
   // 5b. Best-effort cleanup of the legacy builtin-skills cache left behind

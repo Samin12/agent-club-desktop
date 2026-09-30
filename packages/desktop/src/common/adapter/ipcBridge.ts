@@ -1,3 +1,4 @@
+import { brandBuiltinCatalogEntry } from './apiModelMapper';
 /**
  * @license
  * Copyright 2025 AionUi (aionui.com)
@@ -167,10 +168,13 @@ export const shell = {
 // ---------------------------------------------------------------------------
 
 export const assistants = {
-  list: httpGet<Assistant[], void>('/api/assistants'),
-  get: httpGet<AssistantDetail, { id: string; locale?: string }>(
-    ({ id, locale }) =>
-      `/api/assistants/${encodeURIComponent(id)}${locale ? `?locale=${encodeURIComponent(locale)}` : ''}`
+  list: withResponseMap(httpGet<Assistant[], void>('/api/assistants'), (items) => items.map(brandBuiltinCatalogEntry)),
+  get: withResponseMap(
+    httpGet<AssistantDetail, { id: string; locale?: string }>(
+      ({ id, locale }) =>
+        `/api/assistants/${encodeURIComponent(id)}${locale ? `?locale=${encodeURIComponent(locale)}` : ''}`
+    ),
+    (detail) => ({ ...detail, profile: brandBuiltinCatalogEntry({ ...detail.profile, source: detail.source }) })
   ),
   create: httpPost<Assistant, CreateAssistantRequest>('/api/assistants'),
   update: httpPut<Assistant, UpdateAssistantRequest>((p) => `/api/assistants/${p.id}`),
@@ -1123,7 +1127,10 @@ export const acpConversation = {
   sendMessage: conversation.sendMessage,
   responseStream: conversation.responseStream,
   /** Management view used by Agent settings. */
-  getManagedAgents: httpGet<import('@/renderer/utils/model/agentTypes').ManagedAgent[], void>('/api/agents/management'),
+  getManagedAgents: withResponseMap(
+    httpGet<import('@/renderer/utils/model/agentTypes').ManagedAgent[], void>('/api/agents/management'),
+    (items) => items.map(brandBuiltinCatalogEntry)
+  ),
   getAgentOverrides: httpGet<
     { command_override?: string; env_override: { name: string; value: string }[] },
     { id: string }
@@ -2503,4 +2510,8 @@ export const sidebar = {
   deleteArchivedProject: httpDelete<import('@/common/types/sidebar').ArchiveDeleteResult, { project_id: string }>(
     (p) => `/api/sidebar/archived/project/${encodeURIComponent(p.project_id)}`
   ),
+};
+
+export const jarvis = {
+  open: bridge.buildProvider<{ url: string }, void>('agentclub:jarvis:open'),
 };

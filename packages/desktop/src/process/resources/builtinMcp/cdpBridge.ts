@@ -273,7 +273,7 @@ const handleSocketMessage = async (ws: WebSocket, raw: string, announcedSessions
     sendError(
       ws,
       id,
-      'The in-app browser is not currently attached. Open the browser panel in AionUi so a page is available to control.',
+      'The in-app browser is not currently attached. Open the browser panel in Agent Club so a page is available to control.',
       sessionId
     );
     return;

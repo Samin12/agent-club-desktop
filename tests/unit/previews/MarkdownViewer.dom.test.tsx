@@ -239,10 +239,10 @@ describe('MarkdownViewer', () => {
   });
 
   it('keeps remote links as browser anchors', () => {
-    render(<MarkdownViewer content='[docs](https://aionui.com/docs)' />);
+    render(<MarkdownViewer content='[docs](https://github.com/Samin12/agent-club-desktopdocs)' />);
 
     const link = screen.getByRole('link', { name: 'docs' });
-    expect(link).toHaveAttribute('href', 'https://aionui.com/docs');
+    expect(link).toHaveAttribute('href', 'https://github.com/Samin12/agent-club-desktopdocs');
   });
 
   it('sanitizes raw HTML in preview mode (drops <script>, keeps benign markup)', () => {

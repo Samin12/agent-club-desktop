@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "AionUi",
+      "name": "agent-club-desktop",
       "dependencies": {
         "@agentclientprotocol/sdk": "^0.18.2",
         "@aionui/web-host": "workspace:*",
@@ -188,7 +188,7 @@
       "name": "@aionui/web-cli",
       "version": "1.9.26",
       "bin": {
-        "aionui-web": "./bin/aionui-web.js",
+        "agentclub-web": "./bin/aionui-web.js",
       },
       "dependencies": {
         "@aionui/shared-scripts": "workspace:*",

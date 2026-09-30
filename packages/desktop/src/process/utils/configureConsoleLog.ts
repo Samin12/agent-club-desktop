@@ -11,7 +11,7 @@
  *
  * Log file location (managed by electron-log):
  *   - macOS:   ~/Library/Logs/AionUi/YYYY/MM/DD/YYYY-MM-DD.log
- *   - Windows: %USERPROFILE%\AppData\Roaming\AionUi\logs\YYYY\MM\DD\YYYY-MM-DD.log
+ *   - Windows: %USERPROFILE%\AppData\Roaming\Agent Club\logs\YYYY\MM\DD\YYYY-MM-DD.log
  *   - Linux:   ~/.config/AionUi/logs/YYYY/MM/DD/YYYY-MM-DD.log
  *
  * Users can share the relevant date's file for debugging (#1157).

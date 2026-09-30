@@ -64,10 +64,10 @@
   "more": "Mehr",
   "refresh": "Aktualisieren",
   "readOnly": "Schreibgeschützt",
-  "tray.showWindow": "AionUi anzeigen",
+  "tray.showWindow": "Agent Club anzeigen",
   "tray.newChat": "Neuer Chat",
   "tray.closeToTray": "In Taskleiste minimieren",
-  "tray.about": "Über AionUi",
+  "tray.about": "Über Agent Club",
   "tray.restart": "App neu starten",
   "tray.quit": "Beenden",
   "tray.runningTasks": "Laufende Aufgaben",
@@ -78,39 +78,39 @@
   "backendStartup": {
     "incompatibleRuntime": {
       "title": "Dieses System wird vom gebündelten Backend nicht unterstützt",
-      "description": "AionUi wurde geöffnet, aber das lokale AionCore-Backend kann auf dieser Linux-Version nicht ausgeführt werden. Bitte upgrade auf eine unterstützte Linux-Distribution und starte AionUi neu.",
+      "description": "Agent Club wurde geöffnet, aber das lokale Agent Club Engine-Backend kann auf dieser Linux-Version nicht ausgeführt werden. Bitte upgrade auf eine unterstützte Linux-Distribution und starte Agent Club neu.",
       "requiredVersions": "Erforderliche Runtime-Symbole: {{versions}}"
     },
     "incompleteInstallation": {
-      "title": "AionUi-Installation ist unvollständig",
-      "description": "Diese Installation fehlen erforderliche lokale Ressourcen, daher kann AionCore nicht starten. Bitte lade die neueste Version von AionUi herunter und installiere sie neu. Wenn das Problem nach der Neuinstallation erneut auftritt, überprüfe, ob Sicherheits- oder Antivirus-Software AionCore unter Quarantäne gestellt hat.",
+      "title": "Agent Club-Installation ist unvollständig",
+      "description": "Diese Installation fehlen erforderliche lokale Ressourcen, daher kann Agent Club Engine nicht starten. Bitte lade die neueste Version von Agent Club herunter und installiere sie neu. Wenn das Problem nach der Neuinstallation erneut auftritt, überprüfe, ob Sicherheits- oder Antivirus-Software Agent Club Engine unter Quarantäne gestellt hat.",
       "downloadLatest": "Neueste Version herunterladen",
       "sendDiagnostics": "Diagnose senden",
       "diagnosticsSent": "Diagnose gesendet",
       "diagnosticsReportSuccess": "Diagnosebericht gesendet",
       "diagnosticsReportFailed": "Fehler beim Senden des Diagnoseberichts",
-      "runtimeComponentDescription": "Diese Installation fehlen erforderliche gebündelte Runtime-Komponenten, daher kann {{resource}} nicht starten. Installiere das neueste AionUi-Paket neu. Wenn es nach der Neuinstallation immer noch auftritt, überprüfe, ob Sicherheits- oder Antivirus-Software AionUi-Komponenten unter Quarantäne gestellt hat."
+      "runtimeComponentDescription": "Diese Installation fehlen erforderliche gebündelte Runtime-Komponenten, daher kann {{resource}} nicht starten. Installiere das neueste Agent Club-Paket neu. Wenn es nach der Neuinstallation immer noch auftritt, überprüfe, ob Sicherheits- oder Antivirus-Software Agent Club-Komponenten unter Quarantäne gestellt hat."
     },
     "packageArchitectureMismatch": {
-      "title": "AionUi-Paket-Architektur-Fehlanpassung",
-      "description": "Dieses AionUi-Paket ist für {{packageArch}}, aber dieser Mac ist {{deviceArch}}. Möglicherweise hast du das falsche Paket heruntergeladen. Bitte lade das {{expectedArch}}-Paket herunter und installiere es."
+      "title": "Agent Club-Paket-Architektur-Fehlanpassung",
+      "description": "Dieses Agent Club-Paket ist für {{packageArch}}, aber dieser Mac ist {{deviceArch}}. Möglicherweise hast du das falsche Paket heruntergeladen. Bitte lade das {{expectedArch}}-Paket herunter und installiere es."
     },
     "dataMigration": {
       "title": "Local data migration failed",
-      "description": "AionUi opened, but AionCore stopped while initializing local data. Reinstalling AionUi may not fix this. Send a diagnostics report or contact support so the local database migration can be inspected.",
+      "description": "Agent Club opened, but Agent Club Engine stopped while initializing local data. Reinstalling Agent Club may not fix this. Send a diagnostics report or contact support so the local database migration can be inspected.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
       "diagnosticsReportFailed": "Failed to send diagnostics report"
     },
     "databaseNewerThanApp": {
-      "title": "Neuere AionUi-Version erforderlich",
-      "description": "Ihre lokalen Daten wurden von einer neueren AionUi-Version erstellt und können von dieser Version nicht geöffnet werden. Aktualisieren Sie AionUi auf die neueste Version — Ihre Daten bleiben erhalten, eine Neuinstallation oder ein Zurücksetzen ist nicht nötig.",
-      "descriptionWithVersion": "Ihre lokalen Daten wurden von einer AionUi-Version erstellt, die neuer ist als die aktuell installierte (v{{currentVersion}}), daher kann diese Version sie nicht öffnen. Aktualisieren Sie AionUi auf die neueste Version — Ihre Daten bleiben erhalten, eine Neuinstallation oder ein Zurücksetzen ist nicht nötig."
+      "title": "Neuere Agent Club-Version erforderlich",
+      "description": "Ihre lokalen Daten wurden von einer neueren Agent Club-Version erstellt und können von dieser Version nicht geöffnet werden. Aktualisieren Sie Agent Club auf die neueste Version — Ihre Daten bleiben erhalten, eine Neuinstallation oder ein Zurücksetzen ist nicht nötig.",
+      "descriptionWithVersion": "Ihre lokalen Daten wurden von einer Agent Club-Version erstellt, die neuer ist als die aktuell installierte (v{{currentVersion}}), daher kann diese Version sie nicht öffnen. Aktualisieren Sie Agent Club auf die neueste Version — Ihre Daten bleiben erhalten, eine Neuinstallation oder ein Zurücksetzen ist nicht nötig."
     },
     "localDataRepair": {
       "title": "Local data repair failed",
-      "description": "AionUi wurde geöffnet, aber AionCore wurde beim Vorbereiten lokaler Startdaten wie Assistant- oder Agent-Datensätzen beendet. Eine Neuinstallation von AionUi behebt dies möglicherweise nicht. Senden Sie einen Diagnosebericht oder wenden Sie sich an den Support, damit die lokale Datenbank geprüft werden kann.",
+      "description": "Agent Club wurde geöffnet, aber Agent Club Engine wurde beim Vorbereiten lokaler Startdaten wie Assistant- oder Agent-Datensätzen beendet. Eine Neuinstallation von Agent Club behebt dies möglicherweise nicht. Senden Sie einen Diagnosebericht oder wenden Sie sich an den Support, damit die lokale Datenbank geprüft werden kann.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -118,7 +118,7 @@
     },
     "startupDirectory": {
       "title": "Startup directory is unavailable",
-      "description": "AionUi opened, but AionCore could not start because the configured work or log directory is missing, unavailable, or blocked by permissions. Check that the configured directories exist and are writable, then restart AionUi.",
+      "description": "Agent Club opened, but Agent Club Engine could not start because the configured work or log directory is missing, unavailable, or blocked by permissions. Check that the configured directories exist and are writable, then restart Agent Club.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -126,7 +126,7 @@
     },
     "recoverableDatabaseCorruption": {
       "title": "Lokale Daten sind beschädigt",
-      "description": "AionUi hat erkannt, dass die lokale Datenbank beschädigt ist und den Start nicht fortsetzen kann. Nach der Bestätigung wird die alte Datenbank gesichert und eine neue lokale Datenbank erstellt, um den Start fortzusetzen. Frühere Unterhaltungen werden nicht mehr angezeigt, und die alte Datenbank bleibt als Sicherungsdatei erhalten.",
+      "description": "Agent Club hat erkannt, dass die lokale Datenbank beschädigt ist und den Start nicht fortsetzen kann. Nach der Bestätigung wird die alte Datenbank gesichert und eine neue lokale Datenbank erstellt, um den Start fortzusetzen. Frühere Unterhaltungen werden nicht mehr angezeigt, und die alte Datenbank bleibt als Sicherungsdatei erhalten.",
       "confirmRebuild": "Alte DB sichern und neue DB erstellen",
       "sendDiagnostics": "Diagnose senden",
       "diagnosticsHint": "Das Senden der Diagnose ändert die lokale Datenbank nicht.",
@@ -142,8 +142,8 @@
       }
     },
     "transientConcurrentStartup": {
-      "title": "AionUi wird gestartet",
-      "description": "Beim Öffnen dieses Fensters verwendete ein anderer AionUi-Startvorgang noch die lokalen Daten. Das ist vorübergehend und Ihre Daten sind sicher – eine Neuinstallation ist nicht erforderlich. Bitte warten Sie einen Moment und versuchen Sie es erneut oder starten Sie AionUi neu.",
+      "title": "Agent Club wird gestartet",
+      "description": "Beim Öffnen dieses Fensters verwendete ein anderer Agent Club-Startvorgang noch die lokalen Daten. Das ist vorübergehend und Ihre Daten sind sicher – eine Neuinstallation ist nicht erforderlich. Bitte warten Sie einen Moment und versuchen Sie es erneut oder starten Sie Agent Club neu.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -152,11 +152,11 @@
     },
     "pendingSlow": {
       "title": "Wird gestartet",
-      "description": "AionCore wird gestartet, bitte warten. Wenn es nach einer Weile nicht reagiert, können Sie die App beenden und erneut öffnen."
+      "description": "Agent Club Engine wird gestartet, bitte warten. Wenn es nach einer Weile nicht reagiert, können Sie die App beenden und erneut öffnen."
     },
     "exited": {
       "title": "Start nicht abgeschlossen",
-      "description": "AionCore konnte den Start nicht abschließen und wurde beendet. Bitte starten Sie die App neu; wenn dies wiederholt auftritt, senden Sie bitte eine Diagnose.",
+      "description": "Agent Club Engine konnte den Start nicht abschließen und wurde beendet. Bitte starten Sie die App neu; wenn dies wiederholt auftritt, senden Sie bitte eine Diagnose.",
       "sendDiagnostics": "Diagnose senden",
       "diagnosticsSent": "Diagnose gesendet",
       "diagnosticsReportSuccess": "Diagnose gemeldet",
@@ -164,7 +164,7 @@
     },
     "portReportTimeout": {
       "title": "Zeitüberschreitung beim Start",
-      "description": "AionCore konnte den Start nicht innerhalb der erwarteten Zeit abschließen. Bitte starten Sie die App neu; wenn dies wiederholt auftritt, senden Sie bitte eine Diagnose.",
+      "description": "Agent Club Engine konnte den Start nicht innerhalb der erwarteten Zeit abschließen. Bitte starten Sie die App neu; wenn dies wiederholt auftritt, senden Sie bitte eine Diagnose.",
       "sendDiagnostics": "Diagnose senden",
       "diagnosticsSent": "Diagnose gesendet",
       "diagnosticsReportSuccess": "Diagnose gemeldet",
@@ -172,7 +172,7 @@
     },
     "startupFailed": {
       "title": "Start fehlgeschlagen",
-      "description": "AionCore konnte nicht gestartet werden. Bitte starten Sie die App neu; wenn dies wiederholt auftritt, senden Sie bitte eine Diagnose.",
+      "description": "Agent Club Engine konnte nicht gestartet werden. Bitte starten Sie die App neu; wenn dies wiederholt auftritt, senden Sie bitte eine Diagnose.",
       "sendDiagnostics": "Diagnose senden",
       "diagnosticsSent": "Diagnose gesendet",
       "diagnosticsReportSuccess": "Diagnose gemeldet",
@@ -202,5 +202,15 @@
   "goBack": "Zurück",
   "selectedCount": "{{count}} ausgewählt",
   "selectedSkills": "Ausgewählte Skills",
-  "aiAssistant": "KI-Assistent"
+  "aiAssistant": "KI-Assistent",
+  "appName": "Agent Club",
+  "jarvis": {
+    "title": "Jarvis",
+    "subtitle": "Deine lokale Kommandozentrale",
+    "reload": "Neu laden",
+    "desktopOnly": "Öffne Jarvis in der Agent Club Desktop-App.",
+    "failed": "Jarvis konnte nicht starten. Versuche es erneut oder führe bun run jarvis:build aus.",
+    "retry": "Erneut versuchen",
+    "loading": "Jarvis startet…"
+  }
 }

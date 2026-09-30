@@ -67,10 +67,10 @@
   "more": "Більше",
   "refresh": "Оновити",
   "readOnly": "Лише читання",
-  "tray.showWindow": "Показати AionUi",
+  "tray.showWindow": "Показати Agent Club",
   "tray.newChat": "Новий чат",
   "tray.closeToTray": "Згорнути в трей",
-  "tray.about": "Про AionUi",
+  "tray.about": "Про Agent Club",
   "tray.restart": "Перезапустити програму",
   "tray.quit": "Вийти",
   "tray.runningTasks": "Запущені завдання",
@@ -81,39 +81,39 @@
   "backendStartup": {
     "incompatibleRuntime": {
       "title": "Ця система не підтримується вбудованим backend",
-      "description": "AionUi відкрився, але локальний backend AionCore не може працювати в цій версії Linux. Оновіться до підтримуваного дистрибутива Linux і перезапустіть AionUi.",
+      "description": "Agent Club відкрився, але локальний backend Agent Club Engine не може працювати в цій версії Linux. Оновіться до підтримуваного дистрибутива Linux і перезапустіть Agent Club.",
       "requiredVersions": "Потрібні символи середовища виконання: {{versions}}"
     },
     "incompleteInstallation": {
-      "title": "Встановлення AionUi неповне",
-      "description": "У цьому встановленні бракує потрібних локальних ресурсів, тому AionCore не може запуститися. Завантажте та перевстановіть останню версію AionUi. Якщо проблема повториться після перевстановлення, перевірте, чи захисне або антивірусне ПЗ не помістило AionCore у карантин.",
+      "title": "Встановлення Agent Club неповне",
+      "description": "У цьому встановленні бракує потрібних локальних ресурсів, тому Agent Club Engine не може запуститися. Завантажте та перевстановіть останню версію Agent Club. Якщо проблема повториться після перевстановлення, перевірте, чи захисне або антивірусне ПЗ не помістило Agent Club Engine у карантин.",
       "downloadLatest": "Завантажити останню версію",
       "sendDiagnostics": "Надіслати діагностику",
       "diagnosticsSent": "Діагностику надіслано",
       "diagnosticsReportSuccess": "Діагностичний звіт надіслано",
       "diagnosticsReportFailed": "Не вдалося надіслати діагностичний звіт",
-      "runtimeComponentDescription": "У цій інсталяції бракує потрібних вбудованих компонентів середовища виконання, тому {{resource}} не може запуститися. Перевстановіть найновіший пакет AionUi. Якщо проблема повториться після перевстановлення, перевірте, чи не помістило програмне забезпечення безпеки або антивірус компоненти AionUi у карантин."
+      "runtimeComponentDescription": "У цій інсталяції бракує потрібних вбудованих компонентів середовища виконання, тому {{resource}} не може запуститися. Перевстановіть найновіший пакет Agent Club. Якщо проблема повториться після перевстановлення, перевірте, чи не помістило програмне забезпечення безпеки або антивірус компоненти Agent Club у карантин."
     },
     "packageArchitectureMismatch": {
-      "title": "AionUi package architecture mismatch",
-      "description": "This AionUi package is for {{packageArch}}, but this Mac is {{deviceArch}}. You may have downloaded the wrong package. Please download and install the {{expectedArch}} package."
+      "title": "Agent Club package architecture mismatch",
+      "description": "This Agent Club package is for {{packageArch}}, but this Mac is {{deviceArch}}. You may have downloaded the wrong package. Please download and install the {{expectedArch}} package."
     },
     "dataMigration": {
       "title": "Local data migration failed",
-      "description": "AionUi opened, but AionCore stopped while initializing local data. Reinstalling AionUi may not fix this. Send a diagnostics report or contact support so the local database migration can be inspected.",
+      "description": "Agent Club opened, but Agent Club Engine stopped while initializing local data. Reinstalling Agent Club may not fix this. Send a diagnostics report or contact support so the local database migration can be inspected.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
       "diagnosticsReportFailed": "Failed to send diagnostics report"
     },
     "databaseNewerThanApp": {
-      "title": "Потрібна новіша версія AionUi",
-      "description": "Ваші локальні дані створено новішою версією AionUi, і ця версія не може їх відкрити. Оновіть AionUi до останньої версії, щоб продовжити — дані цілі, перевстановлення чи скидання не потрібні.",
-      "descriptionWithVersion": "Ваші локальні дані створено версією AionUi, новішою за встановлену зараз (v{{currentVersion}}), тому ця версія не може їх відкрити. Оновіть AionUi до останньої версії, щоб продовжити — дані цілі, перевстановлення чи скидання не потрібні."
+      "title": "Потрібна новіша версія Agent Club",
+      "description": "Ваші локальні дані створено новішою версією Agent Club, і ця версія не може їх відкрити. Оновіть Agent Club до останньої версії, щоб продовжити — дані цілі, перевстановлення чи скидання не потрібні.",
+      "descriptionWithVersion": "Ваші локальні дані створено версією Agent Club, новішою за встановлену зараз (v{{currentVersion}}), тому ця версія не може їх відкрити. Оновіть Agent Club до останньої версії, щоб продовжити — дані цілі, перевстановлення чи скидання не потрібні."
     },
     "localDataRepair": {
       "title": "Local data repair failed",
-      "description": "AionUi відкрився, але AionCore зупинився під час підготовки локальних даних запуску, як-от записи assistants або агентів. Повторне встановлення AionUi може не вирішити проблему. Надішліть діагностичний звіт або зверніться до підтримки, щоб можна було перевірити локальну базу даних.",
+      "description": "Agent Club відкрився, але Agent Club Engine зупинився під час підготовки локальних даних запуску, як-от записи assistants або агентів. Повторне встановлення Agent Club може не вирішити проблему. Надішліть діагностичний звіт або зверніться до підтримки, щоб можна було перевірити локальну базу даних.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -121,7 +121,7 @@
     },
     "startupDirectory": {
       "title": "Startup directory is unavailable",
-      "description": "AionUi opened, but AionCore could not start because the configured work or log directory is missing, unavailable, or blocked by permissions. Check that the configured directories exist and are writable, then restart AionUi.",
+      "description": "Agent Club opened, but Agent Club Engine could not start because the configured work or log directory is missing, unavailable, or blocked by permissions. Check that the configured directories exist and are writable, then restart Agent Club.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -129,7 +129,7 @@
     },
     "recoverableDatabaseCorruption": {
       "title": "Локальні дані пошкоджено",
-      "description": "AionUi виявив пошкодження локальної бази даних і не може продовжити запуск. Після підтвердження стару базу даних буде збережено як резервну копію, а для продовження запуску буде створено нову локальну базу даних. Попередні розмови більше не відображатимуться, стара база даних збережеться як файл резервної копії.",
+      "description": "Agent Club виявив пошкодження локальної бази даних і не може продовжити запуск. Після підтвердження стару базу даних буде збережено як резервну копію, а для продовження запуску буде створено нову локальну базу даних. Попередні розмови більше не відображатимуться, стара база даних збережеться як файл резервної копії.",
       "confirmRebuild": "Зберегти стару БД і створити нову",
       "sendDiagnostics": "Надіслати діагностику",
       "diagnosticsHint": "Надсилання діагностики не змінить локальну базу даних.",
@@ -145,8 +145,8 @@
       }
     },
     "transientConcurrentStartup": {
-      "title": "AionUi запускається",
-      "description": "Коли це вікно відкрилося, інший процес запуску AionUi усе ще використовував локальні дані. Це тимчасово, і ваші дані в безпеці — перевстановлення не потрібне. Зачекайте трохи та повторіть спробу або перезапустіть AionUi.",
+      "title": "Agent Club запускається",
+      "description": "Коли це вікно відкрилося, інший процес запуску Agent Club усе ще використовував локальні дані. Це тимчасово, і ваші дані в безпеці — перевстановлення не потрібне. Зачекайте трохи та повторіть спробу або перезапустіть Agent Club.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -155,11 +155,11 @@
     },
     "pendingSlow": {
       "title": "Запуск",
-      "description": "AionCore запускається, зачекайте. Якщо він довго не відповідає, закрийте застосунок і відкрийте його знову."
+      "description": "Agent Club Engine запускається, зачекайте. Якщо він довго не відповідає, закрийте застосунок і відкрийте його знову."
     },
     "exited": {
       "title": "Запуск не завершено",
-      "description": "AionCore не зміг завершити запуск і закрився. Перезапустіть застосунок; якщо це повторюється, надішліть діагностику.",
+      "description": "Agent Club Engine не зміг завершити запуск і закрився. Перезапустіть застосунок; якщо це повторюється, надішліть діагностику.",
       "sendDiagnostics": "Надіслати діагностику",
       "diagnosticsSent": "Діагностику надіслано",
       "diagnosticsReportSuccess": "Діагностику надіслано",
@@ -167,7 +167,7 @@
     },
     "portReportTimeout": {
       "title": "Час запуску вичерпано",
-      "description": "AionCore не завершив запуск за очікуваний час. Перезапустіть застосунок; якщо це повторюється, надішліть діагностику.",
+      "description": "Agent Club Engine не завершив запуск за очікуваний час. Перезапустіть застосунок; якщо це повторюється, надішліть діагностику.",
       "sendDiagnostics": "Надіслати діагностику",
       "diagnosticsSent": "Діагностику надіслано",
       "diagnosticsReportSuccess": "Діагностику надіслано",
@@ -175,7 +175,7 @@
     },
     "startupFailed": {
       "title": "Не вдалося запустити",
-      "description": "AionCore не вдалося запустити. Перезапустіть застосунок; якщо це повторюється, надішліть діагностику.",
+      "description": "Agent Club Engine не вдалося запустити. Перезапустіть застосунок; якщо це повторюється, надішліть діагностику.",
       "sendDiagnostics": "Надіслати діагностику",
       "diagnosticsSent": "Діагностику надіслано",
       "diagnosticsReportSuccess": "Діагностику надіслано",
@@ -205,5 +205,15 @@
   },
   "selectedCount": "Вибрано {{count}}",
   "selectedSkills": "Вибрані навички",
-  "aiAssistant": "ШІ-асистент"
+  "aiAssistant": "ШІ-асистент",
+  "appName": "Agent Club",
+  "jarvis": {
+    "title": "Jarvis",
+    "subtitle": "Ваш локальний командний центр",
+    "reload": "Оновити",
+    "desktopOnly": "Відкрийте Jarvis у настільному застосунку Agent Club.",
+    "failed": "Не вдалося запустити Jarvis. Спробуйте ще раз або виконайте bun run jarvis:build.",
+    "retry": "Спробувати ще раз",
+    "loading": "Запуск Jarvis…"
+  }
 }

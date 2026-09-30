@@ -15,6 +15,7 @@ import { getCdpBridgeHandle } from '@process/utils/cdpBridgeRegistry';
 import { getGpuStatus, setGpuUserOverride } from '@process/utils/gpuRecovery';
 import { initApplicationBridgeCore } from './applicationBridgeCore';
 import type { IStartOnBootStatus } from '@/common/adapter/ipcBridge';
+import { openJarvis } from '@process/services/jarvis';
 import { restartApplication } from './restartApplication';
 
 let mainWindowRef: BrowserWindow | null = null;
@@ -98,6 +99,7 @@ export function setApplicationMainWindow(win: BrowserWindow): void {
 }
 
 export function initApplicationBridge(): void {
+  ipcBridge.jarvis.open.provider(openJarvis);
   // Platform-agnostic handlers: systemInfo, updateSystemInfo, getPath
   initApplicationBridgeCore();
 

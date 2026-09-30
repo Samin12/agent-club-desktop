@@ -1,0 +1,11 @@
+timestamp,source,metric,value,status,error
+2026-06-01T14:00:00Z,youtube,subscribers,8214,mock,
+2026-06-08T14:00:00Z,youtube,subscribers,8377,mock,
+2026-06-01T14:00:00Z,youtube,views_28d,412050,mock,
+2026-06-08T14:00:00Z,youtube,views_28d,436900,mock,
+2026-06-01T14:00:00Z,instagram,followers,1452,mock,
+2026-06-08T14:00:00Z,instagram,followers,1497,mock,
+2026-06-01T14:00:00Z,tiktok,followers,3120,mock,
+2026-06-08T14:00:00Z,tiktok,followers,3344,mock,
+2026-06-01T14:00:00Z,claude_code,tokens_5h,184000,mock,
+2026-06-08T14:00:00Z,claude_code,tokens_5h,512000,mock,

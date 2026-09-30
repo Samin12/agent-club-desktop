@@ -238,3 +238,12 @@ graphify-out/
 .analysis/
 temp/
 .playwright-mcp/
+
+# Jarvis local data and Next.js build output
+integrations/jarvis/.next/
+integrations/jarvis/.env*
+integrations/jarvis/next-env.d.ts
+integrations/jarvis/*.tsbuildinfo
+integrations/jarvis/voice-server/.venv/
+resources/bundled-jarvis/
+!integrations/jarvis/package-lock.json

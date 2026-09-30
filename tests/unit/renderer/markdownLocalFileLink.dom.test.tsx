@@ -183,17 +183,17 @@ describe('MarkdownView local file links', () => {
   });
 
   it('keeps ordinary http links as browser anchors', () => {
-    render(<MarkdownView>{'[docs](https://aionui.com/docs)'}</MarkdownView>);
+    render(<MarkdownView>{'[docs](https://github.com/Samin12/agent-club-desktopdocs)'}</MarkdownView>);
 
     const link = screen.getByRole('link', { name: 'docs' });
-    expect(link).toHaveAttribute('href', 'https://aionui.com/docs');
+    expect(link).toHaveAttribute('href', 'https://github.com/Samin12/agent-club-desktopdocs');
   });
 
   it('keeps http hash links as browser anchors', () => {
-    render(<MarkdownView>{'[docs](https://aionui.com/docs#L10)'}</MarkdownView>);
+    render(<MarkdownView>{'[docs](https://github.com/Samin12/agent-club-desktopdocs#L10)'}</MarkdownView>);
 
     const link = screen.getByRole('link', { name: 'docs' });
-    expect(link).toHaveAttribute('href', 'https://aionui.com/docs#L10');
+    expect(link).toHaveAttribute('href', 'https://github.com/Samin12/agent-club-desktopdocs#L10');
   });
 
   it('adds empty alt text to external raw HTML images without alt text', () => {

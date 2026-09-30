@@ -116,7 +116,7 @@ describe('classifyBackendStartupFailure — genuine data damage still severe', (
   });
 });
 
-// Sentry ELECTRON-31Z — a database written by a NEWER AionUi (downgrade) is
+// Sentry ELECTRON-31Z — a database written by a NEWER Agent Club (downgrade) is
 // intact and only needs an app update. It must surface the dedicated
 // upgrade-required reason instead of the misleading migration-failure dialog.
 describe('classifyBackendStartupFailure — database newer than app (downgrade)', () => {

@@ -499,12 +499,12 @@ describe('transformMessage', () => {
     const message: IResponseMessage = {
       type: 'tips',
       data: {
-        content: 'AionUI failed while sending the message',
+        content: 'Agent Club failed while sending the message',
         type: 'error',
         source: 'send_failed',
         code: 'INTERNAL_ERROR',
         error: {
-          message: 'AionUI failed while sending the message',
+          message: 'Agent Club failed while sending the message',
           code: 'AIONUI_INTERNAL_ERROR',
           ownership: 'aionui',
           detail: 'Failed to write Codex sandbox config',
@@ -524,7 +524,7 @@ describe('transformMessage', () => {
 
     expect(transformed.type).toBe('tips');
     expect(transformed.content.error).toEqual({
-      message: 'AionUI failed while sending the message',
+      message: 'Agent Club failed while sending the message',
       code: 'AIONUI_INTERNAL_ERROR',
       ownership: 'aionui',
       detail: 'Failed to write Codex sandbox config',

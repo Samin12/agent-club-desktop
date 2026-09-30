@@ -1,0 +1,10 @@
+{
+  "name": "agentic-os-runner",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Background skill executor for the Jarvis HUD — watches the vault queue, runs headless Claude, writes results back.",
+  "scripts": {
+    "start": "node runner.js"
+  }
+}

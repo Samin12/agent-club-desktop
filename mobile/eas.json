@@ -25,17 +25,7 @@
     }
   },
   "submit": {
-    "production": {
-      "ios": {
-        "appleId": "liangzhewei@gmail.com",
-        "appleTeamId": "M4AG47ZV62"
-      }
-    },
-    "preview": {
-      "ios": {
-        "appleId": "liangzhewei@gmail.com",
-        "appleTeamId": "M4AG47ZV62"
-      }
-    }
+    "production": {},
+    "preview": {}
   }
 }

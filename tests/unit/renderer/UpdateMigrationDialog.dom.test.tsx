@@ -77,6 +77,6 @@ describe('UpdateMigrationDialog', () => {
     openDialog();
     await waitFor(() => expect(screen.getByText('update.migration.letter.downloadNew')).toBeTruthy());
     fireEvent.click(screen.getByText('update.migration.letter.downloadNew'));
-    expect(mocks.openExternalUrl).toHaveBeenCalledWith('https://www.aionui.com/');
+    expect(mocks.openExternalUrl).toHaveBeenCalledWith('https://github.com/Samin12/agent-club-desktop');
   });
 });

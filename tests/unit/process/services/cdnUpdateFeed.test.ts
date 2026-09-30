@@ -34,7 +34,7 @@ describe('CdnGenericProvider', () => {
     const provider = new CdnGenericProvider(
       {
         provider: 'custom',
-        url: 'https://static.aionui.com/releases',
+        url: 'https://github.com/Samin12/agent-club-desktop/releases/latest/download',
       },
       {} as AppUpdater,
       makeRuntimeOptions()
@@ -53,6 +53,8 @@ describe('CdnGenericProvider', () => {
       releaseDate: '2026-06-08T00:00:00.000Z',
     } satisfies UpdateInfo);
 
-    expect(files[0]?.url.href).toBe('https://static.aionui.com/releases/2.1.14/AionUi-2.1.14-mac-arm64.dmg');
+    expect(files[0]?.url.href).toBe(
+      'https://github.com/Samin12/agent-club-desktop/releases/download/v2.1.14/AionUi-2.1.14-mac-arm64.dmg'
+    );
   });
 });

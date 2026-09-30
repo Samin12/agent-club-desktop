@@ -339,7 +339,7 @@ describe('updateNotificationReducer', () => {
       silent: true,
       updated: true,
       retryCount: 3,
-      instDir: 'D:\\AionUi',
+      instDir: 'D:\\Agent Club',
       logPath: 'C:\\Users\\me\\AppData\\Local\\Temp\\aionui-installer-2.1.27-20260702-151830-ab12cd34ef56.log',
       at: '2026-07-01T00:00:00.000Z',
     };
@@ -378,7 +378,7 @@ describe('updateNotificationReducer', () => {
       silent: true,
       updated: true,
       retryCount: 3,
-      instDir: 'D:\\AionUi',
+      instDir: 'D:\\Agent Club',
       logPath: 'C:\\Users\\me\\AppData\\Local\\Temp\\aionui-installer-2.1.27-20260702-151830-ab12cd34ef56.log',
       at: '2026-07-01T00:00:00.000Z',
     };

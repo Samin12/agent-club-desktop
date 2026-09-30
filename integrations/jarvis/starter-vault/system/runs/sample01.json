@@ -1,0 +1,14 @@
+{
+  "id": "sample01",
+  "skill": "morning-report",
+  "args": {},
+  "ts_queued": "2026-06-01T13:55:00Z",
+  "ts_started": "2026-06-01T13:55:02Z",
+  "ts_completed": "2026-06-01T13:58:41Z",
+  "status": "ok",
+  "exit_code": 0,
+  "summary": "Morning briefing is ready — three sample headlines demonstrating the report shape the Wire and the spoken brief read.",
+  "md_path": "system/runs/sample01.md",
+  "log_path": "system/runs/sample01.md",
+  "deliverable_path": "inbox/reports/morning/2026-06-01-morning-report-sample.md"
+}

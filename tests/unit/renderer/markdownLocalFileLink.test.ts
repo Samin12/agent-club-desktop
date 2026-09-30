@@ -131,14 +131,14 @@ describe('resolveLocalFileLinkPath', () => {
     expect(resolveLocalFileLinkReference('./user.ts')).toBeNull();
     expect(resolveLocalFileLinkReference('../user.ts')).toBeNull();
     expect(resolveLocalFileLinkReference('/settings')).toBeNull();
-    expect(resolveLocalFileLinkReference('https://aionui.com/docs#L10')).toBeNull();
+    expect(resolveLocalFileLinkReference('https://github.com/Samin12/agent-club-desktopdocs#L10')).toBeNull();
     expect(resolveLocalFileLinkReference('https://github.com/org/repo/blob/main/file.ts#L10')).toBeNull();
     expect(resolveLocalFileLinkReference('/Users/demo/file.ts#l10')).toBeNull();
     expect(resolveLocalFileLinkReference('/Users/demo/file.ts#L10-l20')).toBeNull();
   });
 
   it('does not treat normal web links or app routes as local files', () => {
-    expect(resolveLocalFileLinkPath('https://aionui.com/docs')).toBeNull();
+    expect(resolveLocalFileLinkPath('https://github.com/Samin12/agent-club-desktopdocs')).toBeNull();
     expect(resolveLocalFileLinkPath('/settings')).toBeNull();
   });
 

@@ -198,7 +198,7 @@ class AutoUpdaterService extends EventEmitter {
       const devConfig = [
         'provider: generic',
         `url: ${cdnFeedOptions.url}`,
-        'updaterCacheDirName: com.aionui.app',
+        'updaterCacheDirName: club.agent.desktop',
         '',
       ].join('\n');
       const configPath = path.join(app.getPath('userData'), 'dev-app-update.yml');
@@ -459,7 +459,7 @@ class AutoUpdaterService extends EventEmitter {
 
   /**
    * In dev mode the running shell is the stock Electron bundle (com.github.Electron),
-   * while the downloaded archive contains the packaged app (com.aionui.app). Squirrel.Mac
+   * while the downloaded archive contains the packaged app (club.agent.desktop). Squirrel.Mac
    * looks for a bundle matching the *running* id, fails to find it, and reports
    * "Could not locate update bundle". This is expected in dev and cannot be reproduced
    * without a packaged build, so surface a clearer message instead of the raw error.

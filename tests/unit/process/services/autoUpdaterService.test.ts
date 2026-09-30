@@ -178,7 +178,7 @@ describe('AutoUpdaterService', () => {
 
     expect(autoUpdaterMock.setFeedURL).toHaveBeenCalledWith({
       provider: 'custom',
-      url: 'https://static.aionui.com/releases',
+      url: 'https://github.com/Samin12/agent-club-desktop/releases/latest/download',
       updateProvider: CdnGenericProvider,
     });
   });
@@ -342,7 +342,7 @@ describe('AutoUpdaterService', () => {
       releaseDate: '2026-06-08T00:00:00.000Z',
     };
     const fileInfo = {
-      url: new URL('https://static.aionui.com/releases/2.1.14/AionUi-2.1.14-mac.zip'),
+      url: new URL('https://github.com/Samin12/agent-club-desktop/releases/download/v2.1.14/AionUi-2.1.14-mac.zip'),
       info: { url: 'AionUi-2.1.14-mac.zip', sha512: 'sha512-value' },
     };
     const cachedUpdatePath = path.join('/cache/pending', 'AionUi-2.1.14-mac.zip');
@@ -386,7 +386,7 @@ describe('AutoUpdaterService', () => {
       releaseDate: '2026-06-08T00:00:00.000Z',
     };
     const fileInfo = {
-      url: new URL('https://static.aionui.com/releases/2.1.14/AionUi-2.1.14-mac.zip'),
+      url: new URL('https://github.com/Samin12/agent-club-desktop/releases/download/v2.1.14/AionUi-2.1.14-mac.zip'),
       info: { url: 'AionUi-2.1.14-mac.zip', sha512: 'sha512-value' },
     };
     const validateDownloadedPath = vi.fn().mockResolvedValue(null);

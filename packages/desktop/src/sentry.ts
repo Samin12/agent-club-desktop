@@ -207,7 +207,7 @@ function getInstallPathKind(resourcesPath: unknown): string | undefined {
   if (!pathValue) return undefined;
 
   const normalized = pathValue.replace(/\//g, '\\').toLowerCase();
-  if (normalized.includes('\\appdata\\local\\programs\\aionui\\resources')) {
+  if (normalized.includes('\\appdata\\local\\programs\\agent club\\resources')) {
     return 'user_local_programs';
   }
   if (

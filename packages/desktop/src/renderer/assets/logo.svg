@@ -1,8 +1,8 @@
-<svg class="w-5.5 h-5.5 absolute inset-0 m-auto" viewBox="0 0 80 80" fill="none">
-                            <!-- 上方的"^"代表A - 更圆润的线条 -->
-                            <path d="M40 20 Q38 22 25 40 Q23 42 26 42 L30 42 Q32 40 40 30 Q48 40 50 42 L54 42 Q57 42 55 40 Q42 22 40 20" fill="white"></path>
-                            <!-- 中间的"."代表i - 中心圆点 -->
-                            <circle cx="40" cy="46" r="3" fill="white"></circle>
-                            <!-- 下方的弧线代表UI - 更圆润的底部弧线 -->
-                            <path d="M18 50 Q40 70 62 50" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"></path>
-                        </svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 128 128" role="img" aria-label="Agent Club">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#17272B"/><stop offset="1" stop-color="#080D10"/></linearGradient><linearGradient id="accent" x2="1" y2="1"><stop stop-color="#AAFFDE"/><stop offset="1" stop-color="#47CECF"/></linearGradient></defs>
+  <rect x="4" y="4" width="120" height="120" rx="28" fill="url(#bg)"/>
+  <rect x="5" y="5" width="118" height="118" rx="27" fill="none" stroke="#355253" stroke-width="2"/>
+  <path d="M27 87 49 40h11l22 47H69l-4-10H43l-4 10zm20-21h14l-7-17z" fill="url(#accent)"/>
+  <path d="M94 45a27 27 0 1 0 0 39" fill="none" stroke="url(#accent)" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="98" cy="28" r="5" fill="#ACFFDE"/>
+</svg>

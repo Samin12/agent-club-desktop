@@ -547,7 +547,7 @@ describe('agent error locale copy', () => {
     }
   });
 
-  it('does not label app-side errors as direct AionUi ownership', () => {
+  it('does not label app-side errors as direct Agent Club ownership', () => {
     const localeDir = path.join(process.cwd(), 'packages/desktop/src/renderer/services/i18n/locales');
 
     for (const localeName of supportedLocaleNames) {

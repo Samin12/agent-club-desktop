@@ -65,10 +65,10 @@
   "more": "その他",
   "refresh": "更新",
   "readOnly": "読み取り専用",
-  "tray.showWindow": "AionUi を表示",
+  "tray.showWindow": "Agent Club を表示",
   "tray.newChat": "新しいチャット",
   "tray.closeToTray": "トレイに隠す",
-  "tray.about": "AionUi について",
+  "tray.about": "Agent Club について",
   "tray.restart": "アプリを再起動",
   "tray.quit": "終了",
   "tray.runningTasks": "実行中のタスク",
@@ -79,39 +79,39 @@
   "backendStartup": {
     "incompatibleRuntime": {
       "title": "このシステムは同梱バックエンドに対応していません",
-      "description": "AionUi は開きましたが、ローカルの AionCore バックエンドはこの Linux バージョンでは実行できません。対応している Linux ディストリビューションにアップグレードしてから AionUi を再起動してください。",
+      "description": "Agent Club は開きましたが、ローカルの Agent Club Engine バックエンドはこの Linux バージョンでは実行できません。対応している Linux ディストリビューションにアップグレードしてから Agent Club を再起動してください。",
       "requiredVersions": "必要なランタイムシンボル: {{versions}}"
     },
     "incompleteInstallation": {
-      "title": "AionUi のインストールが不完全です",
-      "description": "このインストールには必要なローカルリソースが不足しているため、AionCore を起動できません。最新の AionUi をダウンロードして再インストールしてください。再インストール後も問題が再発する場合は、セキュリティソフトまたはウイルス対策ソフトが AionCore を隔離していないか確認してください。",
+      "title": "Agent Club のインストールが不完全です",
+      "description": "このインストールには必要なローカルリソースが不足しているため、Agent Club Engine を起動できません。最新の Agent Club をダウンロードして再インストールしてください。再インストール後も問題が再発する場合は、セキュリティソフトまたはウイルス対策ソフトが Agent Club Engine を隔離していないか確認してください。",
       "downloadLatest": "最新版をダウンロード",
       "sendDiagnostics": "診断レポートを送信",
       "diagnosticsSent": "診断レポートを送信済み",
       "diagnosticsReportSuccess": "診断レポートを送信しました",
       "diagnosticsReportFailed": "診断レポートの送信に失敗しました",
-      "runtimeComponentDescription": "このインストールには必要な組み込み実行コンポーネントが不足しているため、{{resource}} を起動できません。最新版の AionUi パッケージを再インストールしてください。再インストール後も続く場合は、セキュリティソフトまたはウイルス対策ソフトが AionUi コンポーネントを隔離していないか確認してください。"
+      "runtimeComponentDescription": "このインストールには必要な組み込み実行コンポーネントが不足しているため、{{resource}} を起動できません。最新版の Agent Club パッケージを再インストールしてください。再インストール後も続く場合は、セキュリティソフトまたはウイルス対策ソフトが Agent Club コンポーネントを隔離していないか確認してください。"
     },
     "packageArchitectureMismatch": {
-      "title": "AionUi package architecture mismatch",
-      "description": "This AionUi package is for {{packageArch}}, but this Mac is {{deviceArch}}. You may have downloaded the wrong package. Please download and install the {{expectedArch}} package."
+      "title": "Agent Club package architecture mismatch",
+      "description": "This Agent Club package is for {{packageArch}}, but this Mac is {{deviceArch}}. You may have downloaded the wrong package. Please download and install the {{expectedArch}} package."
     },
     "dataMigration": {
       "title": "Local data migration failed",
-      "description": "AionUi opened, but AionCore stopped while initializing local data. Reinstalling AionUi may not fix this. Send a diagnostics report or contact support so the local database migration can be inspected.",
+      "description": "Agent Club opened, but Agent Club Engine stopped while initializing local data. Reinstalling Agent Club may not fix this. Send a diagnostics report or contact support so the local database migration can be inspected.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
       "diagnosticsReportFailed": "Failed to send diagnostics report"
     },
     "databaseNewerThanApp": {
-      "title": "新しいバージョンの AionUi が必要です",
-      "description": "ローカルデータはより新しいバージョンの AionUi で作成されたため、このバージョンでは開けません。AionUi を最新バージョンに更新すれば続行できます。データは保持され、再インストールやリセットは不要です。",
-      "descriptionWithVersion": "ローカルデータは現在のバージョン v{{currentVersion}} より新しい AionUi で作成されたため、このバージョンでは開けません。AionUi を最新バージョンに更新すれば続行できます。データは保持され、再インストールやリセットは不要です。"
+      "title": "新しいバージョンの Agent Club が必要です",
+      "description": "ローカルデータはより新しいバージョンの Agent Club で作成されたため、このバージョンでは開けません。Agent Club を最新バージョンに更新すれば続行できます。データは保持され、再インストールやリセットは不要です。",
+      "descriptionWithVersion": "ローカルデータは現在のバージョン v{{currentVersion}} より新しい Agent Club で作成されたため、このバージョンでは開けません。Agent Club を最新バージョンに更新すれば続行できます。データは保持され、再インストールやリセットは不要です。"
     },
     "localDataRepair": {
       "title": "Local data repair failed",
-      "description": "AionUi は開きましたが、AionCore は assistant またはエージェントのレコードなどのローカル起動データを準備中に停止しました。AionUi を再インストールしても解決しない可能性があります。ローカルデータベースを確認できるよう、診断レポートを送信するかサポートに連絡してください。",
+      "description": "Agent Club は開きましたが、Agent Club Engine は assistant またはエージェントのレコードなどのローカル起動データを準備中に停止しました。Agent Club を再インストールしても解決しない可能性があります。ローカルデータベースを確認できるよう、診断レポートを送信するかサポートに連絡してください。",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -119,7 +119,7 @@
     },
     "startupDirectory": {
       "title": "Startup directory is unavailable",
-      "description": "AionUi opened, but AionCore could not start because the configured work or log directory is missing, unavailable, or blocked by permissions. Check that the configured directories exist and are writable, then restart AionUi.",
+      "description": "Agent Club opened, but Agent Club Engine could not start because the configured work or log directory is missing, unavailable, or blocked by permissions. Check that the configured directories exist and are writable, then restart Agent Club.",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -127,7 +127,7 @@
     },
     "recoverableDatabaseCorruption": {
       "title": "ローカルデータが破損しています",
-      "description": "ローカルデータベースの破損を検出したため、AionUi は起動を続行できません。確認後、古いデータベースをバックアップし、新しいローカルデータベースを作成して起動を続行します。過去の会話は表示されなくなり、古いデータベースはバックアップファイルとして保持されます。",
+      "description": "ローカルデータベースの破損を検出したため、Agent Club は起動を続行できません。確認後、古いデータベースをバックアップし、新しいローカルデータベースを作成して起動を続行します。過去の会話は表示されなくなり、古いデータベースはバックアップファイルとして保持されます。",
       "confirmRebuild": "古いDBをバックアップして新しいDBを再作成",
       "sendDiagnostics": "診断レポートを送信",
       "diagnosticsHint": "診断レポートの送信ではローカルデータベースは変更されません。",
@@ -143,8 +143,8 @@
       }
     },
     "transientConcurrentStartup": {
-      "title": "AionUi を起動しています",
-      "description": "このウィンドウを開いたとき、別の AionUi の起動処理がまだローカルデータを使用していました。これは一時的なもので、データは安全です。再インストールの必要はありません。少し待ってから再試行するか、AionUi を再起動してください。",
+      "title": "Agent Club を起動しています",
+      "description": "このウィンドウを開いたとき、別の Agent Club の起動処理がまだローカルデータを使用していました。これは一時的なもので、データは安全です。再インストールの必要はありません。少し待ってから再試行するか、Agent Club を再起動してください。",
       "sendDiagnostics": "Send diagnostics",
       "diagnosticsSent": "Diagnostics sent",
       "diagnosticsReportSuccess": "Diagnostics report sent",
@@ -153,11 +153,11 @@
     },
     "pendingSlow": {
       "title": "起動中",
-      "description": "AionCore を起動しています。しばらくお待ちください。しばらく応答がない場合は、アプリを終了してから再度お試しください。"
+      "description": "Agent Club Engine を起動しています。しばらくお待ちください。しばらく応答がない場合は、アプリを終了してから再度お試しください。"
     },
     "exited": {
       "title": "起動が完了しませんでした",
-      "description": "AionCore は起動を完了できずに終了しました。アプリを再起動してください。繰り返し発生する場合は、診断情報を送信してください。",
+      "description": "Agent Club Engine は起動を完了できずに終了しました。アプリを再起動してください。繰り返し発生する場合は、診断情報を送信してください。",
       "sendDiagnostics": "診断を送信",
       "diagnosticsSent": "診断を送信しました",
       "diagnosticsReportSuccess": "診断情報を送信しました",
@@ -165,7 +165,7 @@
     },
     "portReportTimeout": {
       "title": "起動がタイムアウトしました",
-      "description": "AionCore は想定時間内に起動を完了できませんでした。アプリを再起動してください。繰り返し発生する場合は、診断情報を送信してください。",
+      "description": "Agent Club Engine は想定時間内に起動を完了できませんでした。アプリを再起動してください。繰り返し発生する場合は、診断情報を送信してください。",
       "sendDiagnostics": "診断を送信",
       "diagnosticsSent": "診断を送信しました",
       "diagnosticsReportSuccess": "診断情報を送信しました",
@@ -173,7 +173,7 @@
     },
     "startupFailed": {
       "title": "起動に失敗しました",
-      "description": "AionCore を起動できませんでした。アプリを再起動してください。繰り返し発生する場合は、診断情報を送信してください。",
+      "description": "Agent Club Engine を起動できませんでした。アプリを再起動してください。繰り返し発生する場合は、診断情報を送信してください。",
       "sendDiagnostics": "診断を送信",
       "diagnosticsSent": "診断を送信しました",
       "diagnosticsReportSuccess": "診断情報を送信しました",
@@ -202,5 +202,15 @@
   },
   "selectedCount": "選択済み {{count}}",
   "selectedSkills": "選択済みスキル",
-  "aiAssistant": "AI アシスタント"
+  "aiAssistant": "AI アシスタント",
+  "appName": "Agent Club",
+  "jarvis": {
+    "title": "Jarvis",
+    "subtitle": "ローカルのコマンドセンター",
+    "reload": "再読み込み",
+    "desktopOnly": "Agent Club デスクトップアプリで Jarvis を開いてください。",
+    "failed": "Jarvis を起動できませんでした。再試行するか、bun run jarvis:build で再ビルドしてください。",
+    "retry": "再試行",
+    "loading": "Jarvis を起動中…"
+  }
 }

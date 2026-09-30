@@ -7,7 +7,7 @@
 /**
  * Guards the migration letter's data-handover copy.
  *
- * The AionUi (open-source) and the new signed build are two distinct macOS
+ * The Agent Club (open-source) and the new signed build are two distinct macOS
  * apps. When a user signs in to the new build for the first time it claims the
  * local data, after which reopening the old build shows an empty state. The
  * letter must therefore say two things in every locale, or users read "you can

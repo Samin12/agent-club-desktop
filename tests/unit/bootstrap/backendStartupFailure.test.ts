@@ -42,8 +42,8 @@ describe('classifyBackendStartupFailure', () => {
     };
     error.details = {
       stage: 'spawn',
-      workDir: 'D:\\ai\\AionUI\\工作目录',
-      causeMessage: 'ENOENT: no such file or directory, mkdir D:\\ai\\AionUI\\工作目录',
+      workDir: 'D:\\ai\\Agent Club\\工作目录',
+      causeMessage: 'ENOENT: no such file or directory, mkdir D:\\ai\\Agent Club\\工作目录',
     };
 
     expect(classifyBackendStartupFailure(error)).toEqual({
@@ -58,8 +58,8 @@ describe('classifyBackendStartupFailure', () => {
     };
     error.details = {
       stage: 'spawn',
-      workDir: 'D:\\ai\\AionUI\\工作目录',
-      causeMessage: 'EPERM: operation not permitted, mkdir D:\\ai\\AionUI\\工作目录',
+      workDir: 'D:\\ai\\Agent Club\\工作目录',
+      causeMessage: 'EPERM: operation not permitted, mkdir D:\\ai\\Agent Club\\工作目录',
     };
 
     expect(classifyBackendStartupFailure(error)).toEqual({
@@ -74,8 +74,8 @@ describe('classifyBackendStartupFailure', () => {
     };
     error.details = {
       stage: 'spawn_error',
-      binaryPath: 'D:\\apps\\AionUi\\resources\\bundled-aioncore\\win32-x64\\aioncore.exe',
-      causeMessage: 'spawn D:\\apps\\AionUi\\resources\\bundled-aioncore\\win32-x64\\aioncore.exe ENOENT',
+      binaryPath: 'D:\\apps\\Agent Club\\resources\\bundled-aioncore\\win32-x64\\aioncore.exe',
+      causeMessage: 'spawn D:\\apps\\Agent Club\\resources\\bundled-aioncore\\win32-x64\\aioncore.exe ENOENT',
     };
 
     expect(classifyBackendStartupFailure(error)).toEqual({
@@ -290,7 +290,7 @@ describe('classifyBackendStartupFailure', () => {
   });
 
   it('classifies packaged macOS architecture mismatches separately from generic startup failures', () => {
-    const error = new Error('AionUi package architecture does not match this Mac') as Error & {
+    const error = new Error('Agent Club package architecture does not match this Mac') as Error & {
       details?: Record<string, unknown>;
     };
     error.details = {
@@ -408,7 +408,7 @@ describe('getInstallationIntegrityModalActions', () => {
       } as any
     );
 
-    // The root cause is fully understood (database from a newer AionUi), so
+    // The root cause is fully understood (database from a newer Agent Club), so
     // no diagnostics button — a single unambiguous "download latest" action.
     expect(actions.downloadText).toBe('common.backendStartup.incompleteInstallation.downloadLatest');
     expect(actions.reportText).toBeUndefined();
